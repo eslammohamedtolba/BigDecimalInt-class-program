@@ -72,14 +72,17 @@ private:
 public:
     BigDecimalInt (string decStr)
     {
+        //remon
         strBigDecimalInt=decStr;
     }
     BigDecimalInt (int decInt)
     {
+        //remon
         strBigDecimalInt=to_string(decInt);
     }
     BigDecimalInt operator+(BigDecimalInt anotherDec)
     {
+        //remon
         int first=0,second=0;
         string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt,str3="";
         first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? 1:-1);
@@ -100,6 +103,7 @@ public:
     }
     BigDecimalInt operator-(BigDecimalInt anotherDec)
     {
+        //eslam
         int first=0,second=0;
         string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt,str3="";
         first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? -1:1);
@@ -120,6 +124,7 @@ public:
     }
     bool operator<(BigDecimalInt anotherDec)
     {
+        //eslam
         string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt;
         int first,second;
         first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? 1:-1);
@@ -134,6 +139,7 @@ public:
     }
     bool operator>(BigDecimalInt anotherDec)
     {
+        //youssef
         string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt;
         int first,second;
         first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? 1:-1);
@@ -148,6 +154,7 @@ public:
     }
     bool operator==(BigDecimalInt anotherDec)
     {
+        //youssef
         if(strBigDecimalInt==anotherDec.strBigDecimalInt){
             return true;
         }
@@ -157,6 +164,7 @@ public:
     }
     BigDecimalInt operator=(BigDecimalInt anotherDec)
     {
+        //youssef
         strBigDecimalInt=anotherDec.strBigDecimalInt;
     }
     int size()
@@ -171,6 +179,7 @@ public:
 };
 ostream& operator << (ostream& out, BigDecimalInt b)
 {
+    //youssef
     out<<b.strBigDecimalInt;
     return out;
 }
