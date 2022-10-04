@@ -1,0 +1,3 @@
+C:/Users/hp/Downloads/materials/oop/assignments/assignment1/BigDecimalInt-class-program/cmake-build-debug/CMakeFiles/BigDecimalInt_class_program.dir
+C:/Users/hp/Downloads/materials/oop/assignments/assignment1/BigDecimalInt-class-program/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/hp/Downloads/materials/oop/assignments/assignment1/BigDecimalInt-class-program/cmake-build-debug/CMakeFiles/rebuild_cache.dir
