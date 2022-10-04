@@ -73,33 +73,14 @@ public:
     BigDecimalInt (string decStr)
     {
         //remon
-        strBigDecimalInt=decStr;
     }
     BigDecimalInt (int decInt)
     {
         //remon
-        strBigDecimalInt=to_string(decInt);
     }
     BigDecimalInt operator+(BigDecimalInt anotherDec)
     {
         //remon
-        int first=0,second=0;
-        string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt,str3="";
-        first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? 1:-1);
-        stringwsign(str1,str2);
-        equalstrings(str1,str2);
-        if(first==second){
-            str3=samesign(str1,str2,first);
-        }
-        else{
-            if(str1<str2){
-                swap(str1,str2);
-                swap(first,second);
-            }
-            str3=diffsign(str1,str2,first);
-        }
-        BigDecimalInt num3(str3);
-        return num3;
     }
     BigDecimalInt operator-(BigDecimalInt anotherDec)
     {
@@ -140,48 +121,28 @@ public:
     bool operator>(BigDecimalInt anotherDec)
     {
         //youssef
-        string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt;
-        int first,second;
-        first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? 1:-1);
-        stringwsign(str1,str2);
-        equalstrings(str1,str2);
-        if(first>second || (first==second && first==-1 && str1<str2) || ((first==second && first==1 && str1>str2))){
-            return true;
-        }
-        else{
-            return false;
-        }
     }
     bool operator==(BigDecimalInt anotherDec)
     {
         //youssef
-        if(strBigDecimalInt==anotherDec.strBigDecimalInt){
-            return true;
-        }
-        else{
-            return false;
-        }
     }
     BigDecimalInt operator=(BigDecimalInt anotherDec)
     {
         //youssef
-        strBigDecimalInt=anotherDec.strBigDecimalInt;
     }
     int size()
     {
-        cout<<"youssef"<<endl;
+        //youssef
     }
     int sign()
     {
-        cout<<"youssef"<<endl;
+        //youssef
     }
     friend ostream& operator << (ostream& out, BigDecimalInt b);
 };
 ostream& operator << (ostream& out, BigDecimalInt b)
 {
     //youssef
-    out<<b.strBigDecimalInt;
-    return out;
 }
 //------------------------------------------------------------------------------------------------------------------------------
 int main()
