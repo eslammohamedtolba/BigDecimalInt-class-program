@@ -1,5 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
+regex standard("[+-]?[0-9]*");
 void stringwsign(string &s1,string &s2)
 {
     bool first=(s1[0]=='+' || s1[0]=='-'),second=(s2[0]=='+' || s2[0]=='-');
@@ -72,15 +73,59 @@ private:
 public:
     BigDecimalInt (string decStr)
     {
-        //remon
+        while(!regex_match(decStr, standard))
+        {
+            cin.clear();
+            cout << '(' << decStr << ')' << " is not valid as a BigDecimalInt" << endl;
+            cout << "enter another one:" << endl;
+            cin >> decStr;
+        }
+        strBigDecimalInt = decStr;
     }
-    BigDecimalInt (int decInt)
-    {
-        //remon
-    }
+    BigDecimalInt (int decInt) : strBigDecimalInt(to_string(decInt)){}
     BigDecimalInt operator+(BigDecimalInt anotherDec)
     {
         //remon
+        string str1 = strBigDecimalInt, str2 = anotherDec.strBigDecimalInt, str3{""};
+        char first_sign = (str1[0] == '+' || str1[0] == '-') ? str1[0] : '+';
+        char second_sign = (str2[0] == '+' || str2[0] == '-') ? str2[0] : '+';
+        stringwsign(str1, str2);
+        equalstrings(str1, str2);
+        if(first_sign == second_sign)
+        {
+            int remaining = 0;
+            char ch;
+            for (int i = str1.length()-1; i >= 0; i--)
+            {
+                int indexstr1 = str1[i] - '0';
+                int indexstr2 = str2[i] - '0';
+                ch = (indexstr1+indexstr2+remaining) % 10 + 48;
+                str3 = ch + str3;
+                remaining = (indexstr1+indexstr2+remaining)/10;
+                
+            }
+            if(remaining!=0){
+                ch=remaining+48;
+                str3=ch+str3;
+            }
+            if(first_sign == '-'){
+                str3 = '-' + str3;
+            }
+        }
+        
+        else
+        {
+            if(str2 > str1)
+            {
+                swap(str1, str2);
+                swap(first_sign, second_sign);
+            }
+            int first = (first_sign == '-') ? -1 : 1;
+            str3 = diffsign(str1, str2, first);
+        }
+
+        BigDecimalInt result(str3);
+        return result;
     }
     BigDecimalInt operator-(BigDecimalInt anotherDec)
     {
