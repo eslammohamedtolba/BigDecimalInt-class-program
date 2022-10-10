@@ -1,4 +1,5 @@
 #include "bits/stdc++.h"
+#include <string>
 using namespace std;
 regex standard("[+-]?[0-9]*");
 void stringwsign(string &s1,string &s2)
@@ -102,7 +103,7 @@ public:
                 ch = (indexstr1+indexstr2+remaining) % 10 + 48;
                 str3 = ch + str3;
                 remaining = (indexstr1+indexstr2+remaining)/10;
-                
+
             }
             if(remaining!=0){
                 ch=remaining+48;
@@ -112,7 +113,7 @@ public:
                 str3 = '-' + str3;
             }
         }
-        
+
         else
         {
             if(str2 > str1)
@@ -165,29 +166,45 @@ public:
     }
     bool operator>(BigDecimalInt anotherDec)
     {
-        //youssef
+        string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt;
+        int first,second;
+        first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? 1:-1);
+        stringwsign(str1,str2);
+        equalstrings(str1,str2);
+        if(first>second || (first==second && second==-1 && str1<str2) || ((first==second && second==1 && str1>str2))){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     bool operator==(BigDecimalInt anotherDec)
     {
-        //youssef
+        if (strBigDecimalInt == anotherDec.strBigDecimalInt)
+            return true;
+        else
+            return false;
+
     }
     BigDecimalInt operator=(BigDecimalInt anotherDec)
     {
-        //youssef
+        strBigDecimalInt = anotherDec.strBigDecimalInt;
     }
     int size()
     {
-        //youssef
+        int size = strBigDecimalInt.length();
+        return size;
     }
     int sign()
     {
-        //youssef
+        int sign = (strBigDecimalInt[0] != '-'? 1 : -1);
+        return sign;
     }
     friend ostream& operator << (ostream& out, BigDecimalInt b);
 };
 ostream& operator << (ostream& out, BigDecimalInt b)
 {
-    //youssef
+    cout << b.strBigDecimalInt;
 }
 //------------------------------------------------------------------------------------------------------------------------------
 int main()
