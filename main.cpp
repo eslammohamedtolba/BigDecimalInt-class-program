@@ -1,5 +1,4 @@
 #include "bits/stdc++.h"
-#include <string>
 using namespace std;
 regex standard("[+-]?[0-9]*");
 void stringwsign(string &s1,string &s2)
@@ -103,7 +102,6 @@ public:
                 ch = (indexstr1+indexstr2+remaining) % 10 + 48;
                 str3 = ch + str3;
                 remaining = (indexstr1+indexstr2+remaining)/10;
-
             }
             if(remaining!=0){
                 ch=remaining+48;
@@ -113,7 +111,7 @@ public:
                 str3 = '-' + str3;
             }
         }
-
+        
         else
         {
             if(str2 > str1)
@@ -166,6 +164,7 @@ public:
     }
     bool operator>(BigDecimalInt anotherDec)
     {
+        //youssef
         string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt;
         int first,second;
         first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? 1:-1);
@@ -180,23 +179,26 @@ public:
     }
     bool operator==(BigDecimalInt anotherDec)
     {
+        //youssef
         if (strBigDecimalInt == anotherDec.strBigDecimalInt)
             return true;
         else
             return false;
-
     }
     BigDecimalInt operator=(BigDecimalInt anotherDec)
     {
+        //youssef
         strBigDecimalInt = anotherDec.strBigDecimalInt;
     }
     int size()
     {
+        //youssef
         int size = strBigDecimalInt.length();
         return size;
     }
     int sign()
     {
+        //youssef
         int sign = (strBigDecimalInt[0] != '-'? 1 : -1);
         return sign;
     }
@@ -204,21 +206,34 @@ public:
 };
 ostream& operator << (ostream& out, BigDecimalInt b)
 {
-    cout << b.strBigDecimalInt;
+    out<<b.strBigDecimalInt;
+    return out;
 }
 //------------------------------------------------------------------------------------------------------------------------------
 int main()
 {
-    BigDecimalInt num1("-123414");
-    BigDecimalInt num2("123189");
+    BigDecimalInt num1("123456789012345678901234567890");
+    BigDecimalInt num2("+113456789011345678901134567890");
     BigDecimalInt num3("-200000000000000000000000000000");
-    BigDecimalInt num4 = num2 + num1;
-    num4=num3;
-    cout<<num4<<endl;
-//    BigDecimalInt num5 = num2 - num1;
+    BigDecimalInt num4(23497);
+//    BigDecimalInt num4 = num3 + num1;
+//    BigDecimalInt num5 = num3 - num1;
 //    cout << "num1 = " << num1 << endl;
 //    cout << "num2 = " << num2 << endl;
-//Next statement will print 236913578023691357802369135780
-//Next statement will print -313456789011345678901134567890
+////Next statement will print 236913578023691357802369135780
+//    cout << "num2 + num1 = " << num4 << endl;
+////Next statement will print -010000000001000000000100000000
 //    cout << "num2 - num1 = " << num5 << endl;
+//    if(num2>num1){
+//        cout<<"second number is greater than first number"<<endl;
+//    }
+//    else if(num2<num1){
+//        cout<<"second number is smaller than first number"<<endl;
+//    }
+//    else{
+//        cout<<"both are equal"<<endl;
+//    }
+//    num3=num2;
+//    cout<<num3<<endl;
+//    cout<<num4.size()<<endl;
 }
