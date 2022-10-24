@@ -69,7 +69,7 @@ string diffsign(string str1,string str2,int first)
 class BigDecimalInt
 {
 private:
-    // this is the variable that will store the data
+    // this is the variable that will contain the data
     string strBigDecimalInt;
 public:
     BigDecimalInt (string decStr)
