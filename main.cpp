@@ -217,7 +217,7 @@ ostream& operator << (ostream& out, BigDecimalInt b)
 //------------------------------------------------------------------------------------------------------------------------------
 int main()
 {
-    // our examples of this project
+    // our examples for this project
     BigDecimalInt num1("123456789012345678901234567890");
     BigDecimalInt num2("+113456789011345678901134567890");
     BigDecimalInt num3("-200000000000000000000000000000");
