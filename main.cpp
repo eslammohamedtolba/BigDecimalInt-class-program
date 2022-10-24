@@ -72,8 +72,8 @@ private:
     // this is the variable that will contain the data
     string strBigDecimalInt;
 public:
-    BigDecimalInt (string decStr)
-    {
+    BigDecimalInt (string decStr) //here i made a constractor and i added regex to it
+    { 
         while(!regex_match(decStr, standard))
         {
             cin.clear();
@@ -84,9 +84,9 @@ public:
         strBigDecimalInt = decStr;
     }
     BigDecimalInt (int decInt) : strBigDecimalInt(to_string(decInt)){}
-    BigDecimalInt operator+(BigDecimalInt anotherDec)
+    BigDecimalInt operator+(BigDecimalInt anotherDec) // i overloded '+' to add two big decimal numbers
     {
-        //remon
+        
         string str1 = strBigDecimalInt, str2 = anotherDec.strBigDecimalInt, str3{""};
         char first_sign = (str1[0] == '+' || str1[0] == '-') ? str1[0] : '+';
         char second_sign = (str2[0] == '+' || str2[0] == '-') ? str2[0] : '+';
