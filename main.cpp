@@ -69,6 +69,7 @@ string diffsign(string str1,string str2,int first)
 class BigDecimalInt
 {
 private:
+    // this is the variable that will store the data
     string strBigDecimalInt;
 public:
     BigDecimalInt (string decStr)
@@ -130,8 +131,11 @@ public:
     {
         //eslam
         int first=0,second=0;
+        // here where we store the same data from our variables to ease ability to use it by using short name
         string str1=strBigDecimalInt,str2=anotherDec.strBigDecimalInt,str3="";
+        // here we find the signs of two numbers to check on later
         first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? -1:1);
+        // this function used to make two numbers without the character of + or -
         stringwsign(str1,str2);
         equalstrings(str1,str2);
         if(first==second){
