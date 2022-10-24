@@ -1,14 +1,14 @@
 #include "bits/stdc++.h"
 using namespace std;
 regex standard("[+-]?[0-9]*");
-void stringwsign(string &s1,string &s2)
+void stringwsign(string &s1,string &s2) // in this function we remove sign from the string
 {
     bool first=(s1[0]=='+' || s1[0]=='-'),second=(s2[0]=='+' || s2[0]=='-');
     s1=s1.substr(first,s1.size()-first);
     s2=s2.substr(second,s2.size()-second);
 }
 //-----------------------------------------------------------------------------------------------------------------------------
-void equalstrings(string &s1,string &s2)
+void equalstrings(string &s1,string &s2) // in this function we add zeros to the end of the smallest string
 {
     int size1=s1.size(),size2=s2.size();
     string s3(abs(size1-size2),'0');
@@ -20,7 +20,7 @@ void equalstrings(string &s1,string &s2)
     }
 }
 //-----------------------------------------------------------------------------------------------------------------------------
-string samesign(string str1,string str2,int first)
+string samesign(string str1,string str2,int first) // this is an algorithm to add or substract two strings if they have the same sign
 {
     int remaining=0,indexstr1=0,indexstr2=0;char ch;string str3="";
     for(int i=str1.size()-1;i>=0;i--){
@@ -39,7 +39,7 @@ string samesign(string str1,string str2,int first)
     return str3;
 }
 //----------------------------------------------------------------------------------------------------------------------------
-string diffsign(string str1,string str2,int first)
+string diffsign(string str1,string str2,int first) // this is an algorithm to add or substract two strings if they have diffrent sign
 {
     int indexstr1=0,indexstr2=0;char ch;string str3="";
     for(int i=str1.size()-1;i>=0;i--){
