@@ -208,6 +208,7 @@ public:
     }
     friend ostream& operator << (ostream& out, BigDecimalInt b);
 };
+//overloading the cout operator
 ostream& operator << (ostream& out, BigDecimalInt b)
 {
     out<<b.strBigDecimalInt;
