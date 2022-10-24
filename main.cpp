@@ -159,6 +159,7 @@ public:
         first=(str1[0]!='-'? 1:-1),second=(str2[0]!='-'? 1:-1);
         stringwsign(str1,str2);
         equalstrings(str1,str2);
+        // here I compare by both signs of them and if they equaled i compared by its value
         if(first<second || (first==second && first==-1 && str1>str2) || ((first==second && first==1 && str1<str2))){
             return true;
         }
